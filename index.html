@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Super 5D Aesthetic Portfolio with Colorful 3D Effects">
+  <meta name="author" content="Your Name">
+  <meta name="keywords" content="portfolio, 3D, creative, designer, developer">
+  <title>Super 5D Colorful Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <style>
+    body { margin: 0; overflow-x: hidden; font-family: 'Inter', sans-serif; }
+    #canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+    .section { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .profile-pic { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.4); transition: transform 0.3s; }
+    .profile-pic:hover { transform: scale(1.1); }
+    .glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3); }
+    .nav-link { transition: color 0.3s; }
+    .nav-link:hover { color: #ff69b4; }
+    .colorful-text { animation: colorChange 5s infinite; }
+    @keyframes colorChange {
+      0% { color: #ff6bcb; }
+      25% { color: #00ffcc; }
+      50% { color: #ffeb3b; }
+      75% { color: #7b68ee; }
+      100% { color: #ff6bcb; }
+    }
+    .btn { transition: transform 0.3s, background 0.3s; }
+    .btn:hover { transform: translateY(-3px); background: #ff1493; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-blue-900 to-pink-900 text-white">
+  <!-- 3D Canvas Background -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full p-6 z-10 glass">
+    <ul class="flex justify-center space-x-10">
+      <li><a href="#home" class="nav-link text-lg font-semibold">Home</a></li>
+      <li><a href="#about" class="nav-link text-lg font-semibold">About</a></li>
+      <li><a href="#portfolio" class="nav-link text-lg font-semibold">Portfolio</a></li>
+      <li><a href="#contact" class="nav-link text-lg font-semibold">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <div class="text-center">
+      <img src="nnn.png" alt="Profile Picture" class="profile-pic mx-auto mb-6">
+      <h1 class="text-6xl font-extrabold mb-4 colorful-text">Your Name</h1>
+      <p class="text-2xl mb-6">Creative Visionary | 5D Designer | Full-Stack Innovator</p>
+      <a href="#contact" class="btn inline-block px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full text-lg font-semibold">Connect with Me</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section bg-black/20">
+    <div class="max-w-5xl mx-auto p-10 glass">
+      <h2 class="text-5xl font-bold mb-8 text-center colorful-text">About Me</h2>
+      <p class="text-xl leading-relaxed text-center">I’m a multidisciplinary creator pushing the boundaries of design and technology. Specializing in immersive 5D experiences, I blend vibrant aesthetics with cutting-edge development to craft unforgettable digital journeys. Let’s create something extraordinary together!</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <div class="max-w-6xl mx-auto p-10">
+      <h2 class="text-5xl font-bold mb-8 text-center colorful-text">Portfolio</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass p-6 rounded-2xl transform hover:scale-105 transition">
+          <img src="https://via.placeholder.com/400" alt="Project 1" class="rounded-lg mb-4 w-full">
+          <h3 class="text-2xl font-semibold colorful-text">Neon Horizon</h3>
+          <p class="text-lg">A vibrant web app with 5D animations and interactive UI.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl transform hover:scale-105 transition">
+          <img src="https://via.placeholder.com/400" alt="Project 2" class="rounded-lg mb-4 w-full">
+          <h3 class="text-2xl font-semibold colorful-text">Cosmic Flow</h3>
+          <p class="text-lg">Immersive 3D visualization for a global brand.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl transform hover:scale-105 transition">
+          <img src="https://via.placeholder.com/400" alt="Project 3" class="rounded-lg mb-4 w-full">
+          <h3 class="text-2xl font-semibold colorful-text">Prism Pulse</h3>
+          <p class="text-lg">Cross-platform app with dynamic color transitions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-black/20">
+    <div class="max-w-5xl mx-auto p-10 glass">
+      <h2 class="text-5xl font-bold mb-8 text-center colorful-text">Contact Me</h2>
+      <p class="text-xl text-center mb-8">Ready to collaborate on something epic? Reach out!</p>
+      <div class="flex justify-center space-x-8">
+        <a href="mailto:your.email@example.com" class="text-2xl colorful-text hover:scale-110 transition">Email</a>
+        <a href="https://linkedin.com" class="text-2xl colorful-text hover:scale-110 transition">LinkedIn</a>
+        <a href="https://github.com" class="text-2xl colorful-text hover:scale-110 transition">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three.js Script for Super 5D Effects -->
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Create 5D Colorful Particles
+    const geometry = new THREE.BufferGeometry();
+    const vertices = [];
+    const colors = [];
+    const sizes = [];
+    for (let i = 0; i < 8000; i++) {
+      vertices.push(
+        Math.random() * 400 - 200,
+        Math.random() * 400 - 200,
+        Math.random() * 400 - 200
+      );
+      colors.push(Math.random(), Math.random(), Math.random());
+      sizes.push(0.5 + Math.random() * 1.5);
+    }
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+    geometry.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1));
+
+    const material = new THREE.PointsMaterial({
+      size: 1,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.8
+    });
+
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    camera.position.z = 200;
+
+    // Animation Loop
+    function animate() {
+      requestAnimationFrame(animate);
+      particles.rotation.y += 0.002;
+      particles.rotation.x += 0.001;
+      const positions = particles.geometry.attributes.position.array;
+      for (let i = 0; i < positions.length; i += 3) {
+        positions[i + 2] += Math.sin(Date.now() * 0.001 + i) * 0.05; // 5D depth effect
+      }
+      particles.geometry.attributes.position.needsUpdate = true;
+
+      // Color Shift
+      const colors = particles.geometry.attributes.color.array;
+      for (let i = 0; i < colors.length; i += 3) {
+        colors[i] = Math.sin(0.1 * i + Date.now() * 0.001) * 0.5 + 0.5;
+        colors[i + 1] = Math.cos(0.1 * i + Date.now() * 0.001) * 0.5 + 0.5;
+        colors[i + 2] = Math.sin(0.1 * i + Date.now() * 0.002) * 0.5 + 0.5;
+      }
+      particles.geometry.attributes.color.needsUpdate = true;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle Window Resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
